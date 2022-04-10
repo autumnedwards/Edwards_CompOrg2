@@ -28,3 +28,8 @@ add $t2, $t0, $a0
 lb $t2, ($t2)
 # iterate the counter
 addi $t0,$t0,1 
+
+beq $t2,32,remove # removing space (SP)
+beq $t2,8,remove # removing blank space (BS)
+beq $t2,9,remove # removing horizontal tab (HT)
+beq $t2,11,remove # removing vertical tab (VT)
