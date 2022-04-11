@@ -42,6 +42,11 @@ begin:
 add $t2, $t0, $a0
 lb $t2, ($t2)
 
+#check the 1st bit of the string
+li $v0, 1
+move $a0,$t2
+syscall
+
 
 beq $t2,32,bypass # removing space (SP)
 beq $t2,9,bypass # removing horizontal tab (HT)
