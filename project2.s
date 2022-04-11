@@ -114,7 +114,14 @@ bne $t2,11,invalid# removing vertical tab (VT)
  beq $t2,10,printSum
  beq $t2,0,printSum
  
- printSum:
+printSum:
+li $v0, 1
+move $a0,$t4
+syscall 
+
+invalid:
+la $a0, errorMessage
+li $v0, 4
 
 
 
