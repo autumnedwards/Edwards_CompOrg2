@@ -76,5 +76,8 @@ integer:
 addi $t3, $t3, -48 #subtracts 48 to get integer from 0-9
 j sum 
 
+uppercase: 
+addi $t3, $t3, -55 #subtracts 55 to get values from 10-32 for uppercase letters
+j sum
 
 
