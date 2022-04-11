@@ -4,6 +4,8 @@ characterarray: .space 4
 newline: .asciiz "\n"
 errorMessage: .asciiz "Not recgonized"
 
+.text
+main:
 #getting user's input as text
 addi $v0, $0, 8 # system call code for reading a string in MIPS is 8
 la $a0, userInput # a0 register set to the location in memory to which the computer will record the input
