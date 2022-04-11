@@ -92,7 +92,7 @@ j sum
 
 
 sum:
-addi $t4, $t4, $t3
+add $t4, $t4, $t3
 addi $t0, $t0,1
 
 #increment $t1
