@@ -64,6 +64,9 @@ Pnumber:
 bge $t3,$t4,integer
 blt $t3, $t4, invalid 
 
+Puppercase:
+bge $t3,$t6,uppercase
+blt $t3, $t6, invalid
 
 
 
