@@ -102,5 +102,8 @@ addi $t1, $t1, 1
 bne $t1,4,characters 
 
 trailingCharacters:
-lb 
+# lb $t2, $t0($a0)
+add $t2, $t0, $a0
+lb $t2, ($t2)
+
 
