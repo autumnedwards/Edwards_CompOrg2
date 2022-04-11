@@ -24,6 +24,12 @@ sub $t1,$t5,$t6 # loading the value of N-10 to register t7
 addi $t4, $0, 48
 addi $t5, $0, 57
 addi $t6, $0, 65
+addi $t8, $0, 97
+#adding the lower bound for uppercase to M to get the range
+add $t7, $t6, $t1
+
+#adding the lower bound for uppercase to M to get the range
+add $t9, $t8, $t1
 
 
 # remove leading and trailing blackspace characters and tab characters (BS = 8, HT = 9, VT = 11, S-32) similar to Trim(char[])
