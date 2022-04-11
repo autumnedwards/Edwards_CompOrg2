@@ -68,6 +68,8 @@ Puppercase:
 bge $t3,$t6,uppercase
 blt $t3, $t6, invalid
 
-
+Plowercase:
+bge $t3,$t8,lowercase 
+blt $t3, $t8, invalid
 
 
