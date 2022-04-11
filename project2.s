@@ -122,6 +122,7 @@ syscall
 invalid:
 la $a0, errorMessage
 li $v0, 4
+syscall
 
 
 
