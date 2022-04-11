@@ -51,9 +51,14 @@ remove:
 addi $t0,$t0,1 
 j begin
 
+#loading zero into my counter
+li $t1, 0
 
 characters:
-#sb $t3, 4characterarray($t1)
+beq $t1, 4, trailingCharacters
+sb $t3, 4characterarray($t1)
+
+
 
 ble $t3,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t3,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
