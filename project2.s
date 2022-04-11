@@ -62,6 +62,9 @@ sb $t3, characterarray($t1)
 beq $t3,32,trailingCharacters
 beq $t3,9,trailingCharacters
 beq $t3,11,trailingCharacters
+ # 10 is /n character, 0 is null
+beq $t3,10,trailingCharacters
+beq $t3,0,trailingCharacters
 
 ble $t3,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t3,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
@@ -113,8 +116,8 @@ bne $t2,9,invalid # removing horizontal tab (HT)
 bne $t2,11,invalid# removing vertical tab (VT)
 
  # 10 is /n character, 0 is null
- beq $t2,10,printSum
- beq $t2,0,printSum
+beq $t2,10,printSum
+beq $t2,0,printSum
  
 printSum:
 li $v0, 1
