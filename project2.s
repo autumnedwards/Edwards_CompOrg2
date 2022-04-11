@@ -53,7 +53,14 @@ j begin
 
 
 characters:
-#sb $t4, 4characterarray($t1)
+#sb $t3, 4characterarray($t1)
 
-b
+ble $t3,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
+blt $t3,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
+blt $t3,$t9,Plowercase #if the value of t2 is less than or equal to 119 go to possible lowercase
+bge $t3, $t9, invalid #if the value of t2 is greater than 118 go to return zero
+
+
+
+
 
