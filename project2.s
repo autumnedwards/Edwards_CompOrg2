@@ -72,4 +72,9 @@ Plowercase:
 bge $t3,$t8,lowercase 
 blt $t3, $t8, invalid
 
+integer:
+addi $t3, $t3, -48 #subtracts 48 to get integer from 0-9
+j sum 
+
+
 
