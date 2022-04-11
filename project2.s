@@ -1,5 +1,6 @@
 .data
-userInput: .space 1200 #allocating 1200 bytes for the string b/c 1 character = 1 byte plus 2 extra bytes
+userInput: .space 1000 #allocating 1200 bytes for the string b/c 1 character = 1 byte plus 2 extra bytes
+4characterarray: .space 4
 newline: .asciiz "\n"
 errorMessage: .asciiz "Not recgonized"
 
@@ -18,6 +19,12 @@ li $t4, 26 # loading the number 26 to register t4
 add $t5,$t4,$t3 # adding the modulo of my id and 26 and storing it in the t5 register
 li $t6, 10 # loading the number 10 to the t6 register
 sub $t1,$t5,$t6 # loading the value of N-10 to register t7
+
+#storing the boundary values for the range 
+addi $t4, $0, 48
+addi $t5, $0, 57
+addi $t6, $0, 65
+
 
 # remove leading and trailing blackspace characters and tab characters (BS = 8, HT = 9, VT = 11, S-32) similar to Trim(char[])
 
@@ -40,4 +47,7 @@ j begin
 
 
 characters:
+#sb $t4, 4characterarray($t1)
+
+b
 
