@@ -21,7 +21,7 @@ li $t6, 10 # loading the number 10 to the t6 register
 sub $t1,$t5,$t6 # loading the value of N-10 to register t7
 
 #storing the boundary values for the range 
-addi $t4, $0, 48
+addi $s4, $0, 48
 addi $t5, $0, 57
 addi $t6, $0, 65
 addi $t8, $0, 97
@@ -46,7 +46,7 @@ beq $t2,9,bypass # removing horizontal tab (HT)
 beq $t2,11,bypass # removing vertical tab (VT)
 j characters
 
-remove:
+bypass:
 # iterate the counter
 addi $t0,$t0,1 
 j begin
@@ -55,10 +55,11 @@ j begin
 li $t1, 0
 
 characters:
-beq $t1, 4, trailingCharacters
 sb $t3, 4characterarray($t1)
 
-
+beq $t3,32,trailingCharacters
+beq $t3,9,trailingCharacters
+beq $t3,11,trailingCharacters
 
 ble $t3,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t3,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
@@ -66,8 +67,8 @@ blt $t3,$t9,Plowercase #if the value of t2 is less than or equal to 119 go to po
 bge $t3, $t9, invalid #if the value of t2 is greater than 118 go to return zero
 
 Pnumber:
-bge $t3,$t4,integer
-blt $t3, $t4, invalid 
+bge $t3,$s4,integer
+blt $t3, $s4, invalid 
 
 Puppercase:
 bge $t3,$t6,uppercase
@@ -89,4 +90,17 @@ lowercase:
 addi $t3, $t3, -87 #subtracts 87 to get values from 10-32 for lowercase letters 
 j sum
 
+
+sum:
+addi $t4, $t4, $t3
+addi $t0, $t0,1
+
+#increment $t1
+addi $t1, $t1, 1
+
+#check to see if the loop should stop
+bne $t1,4,characters 
+
+trailingCharacters:
+lb 
 
