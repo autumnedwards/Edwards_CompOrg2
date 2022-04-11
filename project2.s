@@ -43,9 +43,9 @@ add $t2, $t0, $a0
 lb $t2, ($t2)
 
 #check the 1st bit of the string
-li $v0, 1
-move $a0,$t2
-syscall
+#li $v0, 1
+#move $a0,$t2
+#syscall
 
 
 beq $t2,32,bypass # removing space (SP)
@@ -68,8 +68,8 @@ beq $t3,32,trailingCharacters
 beq $t3,9,trailingCharacters
 beq $t3,11,trailingCharacters
  # 10 is /n character, 0 is null
-beq $t3,10,trailingCharacters
-beq $t3,0,trailingCharacters
+beq $t3,10,printSum
+beq $t3,0,printSum
 
 ble $t3,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t3,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
