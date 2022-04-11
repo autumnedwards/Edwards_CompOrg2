@@ -1,6 +1,6 @@
 .data
 userInput: .space 1000 #allocating 1200 bytes for the string b/c 1 character = 1 byte plus 2 extra bytes
-4characterarray: .space 4
+characterarray: .space 4
 newline: .asciiz "\n"
 errorMessage: .asciiz "Not recgonized"
 
