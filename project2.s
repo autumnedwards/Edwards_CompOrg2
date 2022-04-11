@@ -55,7 +55,7 @@ j begin
 li $t1, 0
 
 characters:
-sb $t3, 4characterarray($t1)
+sb $t3, characterarray($t1)
 
 beq $t3,32,trailingCharacters
 beq $t3,9,trailingCharacters
