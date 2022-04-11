@@ -106,4 +106,12 @@ trailingCharacters:
 add $t2, $t0, $a0
 lb $t2, ($t2)
 
+beq $t2,32,trailing # removing space (SP)
+beq $t2,9,trailing # removing horizontal tab (HT)
+beq $t2,11,trailing # removing vertical tab (VT)
+
+trailing:
+# iterate the counter
+addi $t0,$t0,1 
+j trailingCharacter
 
