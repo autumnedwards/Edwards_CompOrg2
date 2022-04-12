@@ -81,6 +81,8 @@ beq $t0,11,trailingCharacters
 beq $t0,10,printSum
 beq $t0,0,printSum
 
+sb $t0, characterarray($s5)
+
 ble $t0,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t0,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
 blt $t0,$t9,Plowercase #if the value of t2 is less than or equal to 119 go to possible lowercase
@@ -99,15 +101,15 @@ bge $t0,$t8,lowercase
 blt $t0, $t8, invalid
 
 integer:
-addi $t3, $t3, -48 #subtracts 48 to get integer from 0-9
+addi $t0, $t0, -48 #subtracts 48 to get integer from 0-9
 j sum 
 
 uppercase: 
-addi $t3, $t3, -55 #subtracts 55 to get values from 10-32 for uppercase letters
+addi $t0, $t0, -55 #subtracts 55 to get values from 10-32 for uppercase letters
 j sum
 
 lowercase:
-addi $t3, $t3, -87 #subtracts 87 to get values from 10-32 for lowercase letters 
+addi $t0, $t0, -87 #subtracts 87 to get values from 10-32 for lowercase letters 
 j sum
 
 
