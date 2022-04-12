@@ -141,6 +141,13 @@ beq $t2,32,bypass2 # removing space (SP)
 beq $t2,9,bypass2 # removing horizontal tab (HT)
 beq $t2,11,bypass2 # removing vertical tab (VT)
 
+j invalid
+
+bypass2:
+addi $s7, $s7, 1
+lb $t2, 0($s7)
+j trailingCharacters
+
  # 10 is /n character, 0 is null
 beq $t2,10,Checkvalues
 beq $t2,0,Checkvalues
