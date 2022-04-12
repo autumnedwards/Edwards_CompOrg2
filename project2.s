@@ -150,7 +150,10 @@ mflo $s2
 j sum
 
 two:
-li 
+li $s8, $t1
+mult $t1, $t1
+mflo $t1
+mult $t1, $s2
 
 
 sum:
