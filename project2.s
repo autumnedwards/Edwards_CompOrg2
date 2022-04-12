@@ -87,16 +87,16 @@ blt $t0,$t9,Plowercase #if the value of t2 is less than or equal to 119 go to po
 bge $t0, $t9, invalid #if the value of t2 is greater than 118 go to return zero
 
 Pnumber:
-bge $t3,$s4,integer
-blt $t3, $s4, invalid 
+bge $t0,$s4,integer
+blt $t0, $s4, invalid 
 
 Puppercase:
-bge $t3,$t6,uppercase
-blt $t3, $t6, invalid
+bge $t0,$t6,uppercase
+blt $t0, $t6, invalid
 
 Plowercase:
-bge $t3,$t8,lowercase 
-blt $t3, $t8, invalid
+bge $t0,$t8,lowercase 
+blt $t0, $t8, invalid
 
 integer:
 addi $t3, $t3, -48 #subtracts 48 to get integer from 0-9
