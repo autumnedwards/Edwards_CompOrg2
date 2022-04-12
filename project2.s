@@ -38,7 +38,7 @@ add $t9, $t8, $t1
 
 # remove leading and trailing blackspace characters and tab characters (BS = 8, HT = 9, VT = 11, S-32) similar to Trim(char[])
 li $t0,0
-lt $t2, 0
+li $t2, 0
 
 begin:
 beq $t2, 1000, characters
@@ -70,7 +70,7 @@ characters:
 li $s4, 0
 li $s5, 0
 
-chechkCharacters:
+checkCharacters:
 
 beq $s4, 4, trailingCharacters
 
@@ -82,6 +82,10 @@ beq $t0,10,printSum
 beq $t0,0,printSum
 
 sb $t0, characterarray($s5)
+addi $s4, $s4, 1
+addi $t2, $t2, 1
+
+Checkvalues:
 
 ble $t0,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t0,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
