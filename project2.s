@@ -59,7 +59,7 @@ j characters
 
 bypass:
 # iterate the counters
-addi $t0,$t0,1 
+addi $s7,$t0,1 
 addi $t2, $t2, 1
 j begin
 
@@ -84,6 +84,9 @@ beq $t0,0,printSum
 sb $t0, characterarray($s5)
 addi $s4, $s4, 1
 addi $t2, $t2, 1
+addi $s5, $s5, 1
+addi $s7, $t0, 1
+lb $t0, 0($s7)
 
 Checkvalues:
 
