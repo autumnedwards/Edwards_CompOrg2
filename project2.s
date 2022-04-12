@@ -15,14 +15,14 @@ syscall
 move $s7, $a0
 
 # finding X, M and N
-li, $t1,2992633 # loading my id to the register t1
-li, $t2, 11 # loading the number 11 to the register t2
-div $t1,$t2 # dividing my id number by the number 11
+li, $s8,2992633 # loading my id to the register t1
+li, $s9, 11 # loading the number 11 to the register t2
+div $s8,$s9 # dividing my id number by the number 11
 mfhi $t3 # storing the modulo portion to the register t3
 li $t4, 26 # loading the number 26 to register t4
 add $t5,$t4,$t3 # adding the modulo of my id and 26 and storing it in the t5 register
 li $t6, 10 # loading the number 10 to the t6 register
-sub $t1,$t5,$t6 # loading the value of N-10 to register t7
+sub $s8,$t5,$t6 # loading the value of N-10 to register t7
 
 #storing the boundary values for the range 
 addi $s4, $0, 48
@@ -30,10 +30,10 @@ addi $t5, $0, 57
 addi $t6, $0, 65
 addi $t8, $0, 97
 #adding the lower bound for uppercase to M to get the range
-add $t7, $t6, $t1
+add $t7, $t6, $s8
 
 #adding the lower bound for uppercase to M to get the range
-add $t9, $t8, $t1
+add $t9, $t8, $s8
 
 
 # remove leading and trailing blackspace characters and tab characters (BS = 8, HT = 9, VT = 11, S-32) similar to Trim(char[])
@@ -146,7 +146,11 @@ j sum
 
 one:
 mult $t1, $s2
+mflo $s2
+j sum
 
+two:
+li 
 
 
 sum:
