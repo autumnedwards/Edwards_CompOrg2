@@ -134,6 +134,14 @@ j convert
 
 
 convert:
+beq $s5,0, zero
+beq $s5,1, one
+beq, $s5,2, two
+beq, $s5, 3, three
+
+
+
+sum:
 add $t4, $t4, $t3
 addi $t0, $t0,1
 
