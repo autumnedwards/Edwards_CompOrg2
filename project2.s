@@ -150,20 +150,22 @@ mflo $s2
 j sum
 
 two:
-li $s8, $t1
+li $s8, 0
 mult $t1, $t1
-mflo $t1
-mult $t1, $s2
+mflo $s8
+mult $s8, $s2
+mflo $s2
 j sum
 
 three:
 li $s0,0
+li $t9,0
 move $s0, $t1
 mult $t1, $t1
-mflo $t1
-mult $11, $t9
-mflo $t1
-mult $t1, $s2
+mflo $s0
+mult $s0, $t1
+mflo $t9
+mult $t9, $s2
 mflo $s2
 j sum
 
