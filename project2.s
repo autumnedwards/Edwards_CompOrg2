@@ -67,6 +67,12 @@ j begin
 li $t1, 0
 
 characters:
+li $s4, 0
+li $s5, 0
+
+chechkCharacters:
+
+beq $t1, 4, trailingCharacters
 sb $t3, characterarray($t1)
 
 beq $t3,32,trailingCharacters
