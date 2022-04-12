@@ -160,6 +160,11 @@ three:
 li $s9,0
 move $s9, $t1
 mult $t1, $t1
+mflo $t1
+mult $11, $t9
+mflo $t1
+mult $t1, $s2
+
 
 
 sum:
