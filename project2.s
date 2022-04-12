@@ -203,11 +203,11 @@ j trailingCharacters
 beq $t2,10,Checkvalues
 beq $t2,0,Checkvalues
  
-printSum:
+printFinal:
 li $v0, 1
 move $a0,$t4
 syscall 
-j exit
+
 
 invalid:
 la $a0, errorMessage
