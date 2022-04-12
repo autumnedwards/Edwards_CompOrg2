@@ -52,7 +52,7 @@ lb $t0, 0($s7)
 #syscall
 
 
-beq $t0,32,bypass # removing space (SP)
+beq $t0,32,bypass # removing space 
 beq $t0,9,bypass # removing horizontal tab (HT)
 beq $t0,11,bypass # removing vertical tab (VT)
 j characters
