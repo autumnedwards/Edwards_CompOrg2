@@ -128,12 +128,13 @@ printSum:
 li $v0, 1
 move $a0,$t4
 syscall 
+j exit
 
 invalid:
 la $a0, errorMessage
 li $v0, 4
 syscall
 
-
+exit:
 li $v0, 10 #system call for exit
 syscall 
