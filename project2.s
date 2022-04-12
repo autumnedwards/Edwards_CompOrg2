@@ -15,8 +15,8 @@ syscall
 move $s7, $a0
 
 # finding X, M and N
-li, $s8,2992633 # loading my id to the register t1
-li, $s9, 11 # loading the number 11 to the register t2
+li $s8,2992633 # loading my id to the register t1
+li $s9, 11 # loading the number 11 to the register t2
 div $s8,$s9 # dividing my id number by the number 11
 mfhi $t3 # storing the modulo portion to the register t3
 li $t4, 26 # loading the number 26 to register t4
