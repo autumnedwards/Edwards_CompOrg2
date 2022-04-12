@@ -68,7 +68,7 @@ li $t1, 0
 
 characters:
 li $s4, 0
-li $s5, 0
+li $s5, 3
 
 checkCharacters:
 
@@ -84,7 +84,7 @@ beq $t0,0,printSum
 sb $t0, characterarray($s5)
 addi $s4, $s4, 1
 addi $t2, $t2, 1
-addi $s5, $s5, 1
+addi $s5, $s5, -1
 addi $s7, $t0, 1
 lb $t0, 0($s7)
 j checkCharacters
@@ -164,12 +164,17 @@ mflo $t1
 mult $11, $t9
 mflo $t1
 mult $t1, $s2
+mflo $s2
+j sum
 
 
 
 sum:
-add $t4, $t4, $t3
-addi $t0, $t0,1
+add $t4, $t4, $s2
+addi $s5, $s5,1
+addi $s7, $s7, -1
+
+j start
 
 #increment $t1
 addi $t1, $t1, 1
