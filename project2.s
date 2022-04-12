@@ -16,8 +16,8 @@ move $s7, $a0
 
 # finding X, M and N
 li $s8,2992633 # loading my id to the register t1
-li $s9, 11 # loading the number 11 to the register t2
-div $s8,$s9 # dividing my id number by the number 11
+li $s0, 11 # loading the number 11 to the register t2
+div $s8,$s0 # dividing my id number by the number 11
 mfhi $t3 # storing the modulo portion to the register t3
 li $t4, 26 # loading the number 26 to register t4
 add $t5,$t4,$t3 # adding the modulo of my id and 26 and storing it in the t5 register
@@ -157,8 +157,8 @@ mult $t1, $s2
 j sum
 
 three:
-li $s9,0
-move $s9, $t1
+li $s0,0
+move $s0, $t1
 mult $t1, $t1
 mflo $t1
 mult $11, $t9
