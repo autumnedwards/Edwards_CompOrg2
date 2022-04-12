@@ -38,8 +38,10 @@ add $t9, $t8, $t1
 
 # remove leading and trailing blackspace characters and tab characters (BS = 8, HT = 9, VT = 11, S-32) similar to Trim(char[])
 li $t0,0
+lt $t2, 0
 
 begin:
+beq $t2, 1000, characters
 # lb $t2, $t0($a0)
 # changing the syntax of this line 
 lb $t0, 0($s7)
@@ -56,8 +58,9 @@ beq $t0,11,bypass # removing vertical tab (VT)
 j characters
 
 bypass:
-# iterate the counter
+# iterate the counters
 addi $t0,$t0,1 
+addi $t2, $t2, 1
 j begin
 
 #loading zero into my counter
