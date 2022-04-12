@@ -100,7 +100,7 @@ li $t4,0 #sum register
 start:
 beq $s5, $s4, printFinal
 lb $t0,characterarray($s7)
-li $s1,1
+li $s1,1 #exponent
 
 
 ble $t0,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
@@ -138,6 +138,14 @@ beq $s5,0, zero
 beq $s5,1, one
 beq, $s5,2, two
 beq, $s5, 3, three
+
+zero:
+mult $s1, $s2
+mflo $s2
+j sum
+
+one:
+mult $t1, $s2
 
 
 
