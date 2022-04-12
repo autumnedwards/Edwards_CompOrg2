@@ -12,6 +12,8 @@ la $a0, userInput # a0 register set to the location in memory to which the compu
 li $a1, 1000 # i want to read 1000 characters 
 syscall 
 
+move $s7, $a0
+
 # finding X, M and N
 li, $t1,2992633 # loading my id to the register t1
 li, $t2, 11 # loading the number 11 to the register t2
@@ -40,8 +42,7 @@ li $t0,0
 begin:
 # lb $t2, $t0($a0)
 # changing the syntax of this line 
-add $t2, $t0, $a0
-lb $t2, ($t2)
+lb $t0, 0($s7)
 
 #check the 1st bit of the string
 #li $v0, 1
@@ -49,9 +50,9 @@ lb $t2, ($t2)
 #syscall
 
 
-beq $t2,32,bypass # removing space (SP)
-beq $t2,9,bypass # removing horizontal tab (HT)
-beq $t2,11,bypass # removing vertical tab (VT)
+beq $t0,32,bypass # removing space (SP)
+beq $t0,9,bypass # removing horizontal tab (HT)
+beq $t0,11,bypass # removing vertical tab (VT)
 j characters
 
 bypass:
