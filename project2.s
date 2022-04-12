@@ -92,10 +92,15 @@ j checkCharacters
 Checkvalues:
 
 li $s5, 0 #loop (checkvalue index)
-li $s7,0 #array index
+li $s7,3 #array index
 li $s2, 0 #storing decimal value
 
 li $t4,0 #sum register
+
+start:
+beq $s5, $s4, printFinal
+lb $t0,characterarray($s7)
+li $s1,1
 
 
 ble $t0,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
