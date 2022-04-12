@@ -35,6 +35,7 @@ add $t9, $t8, $t1
 
 
 # remove leading and trailing blackspace characters and tab characters (BS = 8, HT = 9, VT = 11, S-32) similar to Trim(char[])
+li $t0,0
 
 begin:
 # lb $t2, $t0($a0)
