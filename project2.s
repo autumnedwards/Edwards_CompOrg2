@@ -87,6 +87,7 @@ addi $t2, $t2, 1
 addi $s5, $s5, 1
 addi $s7, $t0, 1
 lb $t0, 0($s7)
+j checkCharacters
 
 Checkvalues:
 
@@ -131,17 +132,18 @@ addi $t1, $t1, 1
 bne $t1,4,characters 
 
 trailingCharacters:
+beq $t2, 1000, Checkvalues
 # lb $t2, $t0($a0)
 add $t2, $t0, $a0
 lb $t2, ($t2)
 
-bne $t2,32,invalid # removing space (SP)
-bne $t2,9,invalid # removing horizontal tab (HT)
-bne $t2,11,invalid# removing vertical tab (VT)
+beq $t2,32,bypass2 # removing space (SP)
+beq $t2,9,bypass2 # removing horizontal tab (HT)
+beq $t2,11,bypass2 # removing vertical tab (VT)
 
  # 10 is /n character, 0 is null
-beq $t2,10,printSum
-beq $t2,0,printSum
+beq $t2,10,Checkvalues
+beq $t2,0,Checkvalues
  
 printSum:
 li $v0, 1
