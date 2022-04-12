@@ -72,15 +72,14 @@ li $s5, 0
 
 chechkCharacters:
 
-beq $t1, 4, trailingCharacters
-sb $t3, characterarray($t1)
+beq $s4, 4, trailingCharacters
 
-beq $t3,32,trailingCharacters
-beq $t3,9,trailingCharacters
-beq $t3,11,trailingCharacters
+beq $t0,32,trailingCharacters
+beq $t0,9,trailingCharacters
+beq $t0,11,trailingCharacters
  # 10 is /n character, 0 is null
-beq $t3,10,printSum
-beq $t3,0,printSum
+beq $t0,10,printSum
+beq $t0,0,printSum
 
 ble $t3,$t5,Pnumber #if the value of t2 is less than or equal to 57 go to possible number
 blt $t3,$t7,Puppercase #if the value of t2 is less than 87 or equal to go to possible uppercase
