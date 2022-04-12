@@ -154,6 +154,12 @@ li $s8, $t1
 mult $t1, $t1
 mflo $t1
 mult $t1, $s2
+j sum
+
+three:
+li $s9,0
+move $s9, $t1
+mult $t1, $t1
 
 
 sum:
